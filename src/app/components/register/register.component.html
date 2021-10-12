@@ -77,10 +77,56 @@
           >
             Confirm Password is <strong>required</strong>
           </mat-error>
-          <mat-error *ngIf="getConfirmPassword">
+          <mat-error *ngIf="confirmPasswordState">
             Please enter a same password
           </mat-error>
         </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addAddresses()">
+          Add Addresses
+        </button>
+        <div formArrayName="addresses">
+          <div
+            *ngFor="let address of addressesForm.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <h2>Address {{ i + 1 }}</h2>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <input
+                name="address"
+                type="text"
+                formControlName="address"
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Street</mat-label>
+              <input
+                name="street"
+                type="text"
+                formControlName="street"
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Country</mat-label>
+              <input
+                name="country"
+                type="text"
+                formControlName="country"
+                matInput
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>City</mat-label>
+              <input name="city" type="text" formControlName="city" matInput />
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" (click)="removeAddresses(i)">
+              Delete
+            </button>
+          </div>
+        </div>
         <button type="submit" [disabled]="loginForm.invalid" mat-button>
           Login
         </button>
@@ -90,5 +136,7 @@
 </div>
 
 <div class="no-account">
-  <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+  <p>
+    Already have an account? <a routerLink="/login"> <span>Sign In</span> </a>
+  </p>
 </div>

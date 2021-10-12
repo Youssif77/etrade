@@ -18,4 +18,8 @@
   width: 600px;
   font-size: 18px;
   margin: 0 auto;
+  & span {
+    font-weight: 500;
+    color: rgb(56, 102, 223);
+  }
 }
