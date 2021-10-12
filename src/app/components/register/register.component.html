@@ -1,38 +1,52 @@
 <div class="register-wrapper">
   <mat-card>
-    <h2>Welcome back! Sign in to your account</h2>
+    <h2>Create an account</h2>
     <mat-card-content>
-      <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="myForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            name="name"
+            formControlName="name"
+            matInput
+            placeholder="Ex. pat@example.com"
+          />
+        </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Email</mat-label>
           <input
-            ngModel
             type="email"
-            name="email"
+            formControlName="email"
             matInput
             placeholder="Ex. pat@example.com"
-            required
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input
+            type="text"
+            name="username"
+            formControlName="userName"
+            matInput
+            placeholder="Ex. pat@example.com"
           />
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Password</mat-label>
           <input
-            ngModel
             name="password"
-            minlength="4"
             type="password"
+            formControlName="password"
             matInput
-            required
           />
         </mat-form-field>
-        <button [disabled]="form.invalid" type="submit" mat-button>
-          Login
-        </button>
+        <button type="submit" mat-button>Login</button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
 
 <div class="no-account">
-  <p>Don't have account ? <a routerLink="/register">Register</a></p>
+  <p>Already have an account? <a routerLink="/login">Sign In</a></p>
 </div>
