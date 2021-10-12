@@ -9,7 +9,18 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
   public id: any;
-  currentProduct: any = null;
+  currentProduct: any = {
+    id: null,
+    title: '',
+    price: 0,
+    description: '',
+    category: '',
+    image: '',
+    rating: {
+      rate: 0,
+      count: 0,
+    },
+  };
 
   constructor(
     private productsService: ProductsService,
