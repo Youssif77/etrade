@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="register-wrapper">
+  <mat-card>
+    <h2>Welcome back! Sign in to your account</h2>
+    <mat-card-content>
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            ngModel
+            type="email"
+            name="email"
+            matInput
+            placeholder="Ex. pat@example.com"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            ngModel
+            name="password"
+            minlength="4"
+            type="password"
+            matInput
+            required
+          />
+        </mat-form-field>
+        <button [disabled]="form.invalid" type="submit" mat-button>
+          Login
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="no-account">
+  <p>Don't have account ? <a routerLink="/register">Register</a></p>
+</div>
