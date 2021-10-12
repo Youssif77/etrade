@@ -1,0 +1,14 @@
+<div class="prodcut-details">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ currentProduct.title }}</mat-card-title>
+      <mat-card-subtitle>{{ currentProduct.category }}</mat-card-subtitle>
+    </mat-card-header>
+    <img matCardImage [src]="currentProduct.image" />
+    <mat-card-content> {{ currentProduct.description }} </mat-card-content>
+    <mat-card-content> {{ currentProduct.price | currency }} </mat-card-content>
+    <mat-card-actions align="start">
+      <button mat-button>Add to cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

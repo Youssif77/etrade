@@ -1,0 +1,11 @@
+<div [ngClass]="'product-wrapper'">
+  <div *ngFor="let product of productsList">
+    <app-product-card
+      [productId]="product.id"
+      [productImage]="product.image"
+      [productTitle]="product.title"
+      [productCategory]="product.category"
+      [productPrice]="product.price"
+    ></app-product-card>
+  </div>
+</div>

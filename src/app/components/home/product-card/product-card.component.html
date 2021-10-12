@@ -1,0 +1,13 @@
+<a [routerLink]="['/product', productId]">
+  <mat-card class="example-card">
+    <img mat-card-image [src]="productImage" alt="Photo of a Shiba Inu" />
+    <mat-card-content>
+      <p>{{ productTitle }}</p>
+      <p>{{ productCategory }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <p>{{ productPrice | currency }}</p>
+      <button mat-button>Add To Card</button>
+    </mat-card-actions>
+  </mat-card></a
+>
