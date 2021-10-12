@@ -1,13 +1,15 @@
-<a [routerLink]="['/product', productId]">
-  <mat-card class="example-card">
-    <img mat-card-image [src]="productImage" alt="Photo of a Shiba Inu" />
-    <mat-card-content>
-      <p>{{ productTitle }}</p>
-      <p>{{ productCategory }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <p>{{ productPrice | currency }}</p>
-      <button mat-button>Add To Card</button>
-    </mat-card-actions>
-  </mat-card></a
->
+<div [ngClass]="'product-card'">
+  <a [routerLink]="['/product', productId]">
+    <figure class="product-card__image">
+      <img [src]="productImage" alt="Photo of a Shiba Inu" />
+    </figure>
+    <div class="product-card__description">
+      <span class="product-card__category">{{ productCategory }}</span>
+      <h4 class="product-card__title">{{ productTitle }}</h4>
+      <div class="product-card__cta">
+        <p class="product-card__price">{{ productPrice | currency }}</p>
+        <button mat-button>Add To Card</button>
+      </div>
+    </div>
+  </a>
+</div>
