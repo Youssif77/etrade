@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -9,6 +10,8 @@ import { CartService } from 'src/app/shared/services/cart.service';
 export class CartComponent implements OnInit {
   cartItems;
   displayedColumns = ['image', 'title', 'price', 'quntity'];
+  totalPrice: number = 0;
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -23,10 +26,11 @@ export class CartComponent implements OnInit {
           ...this.cartItems[item][0],
           quntity: this.cartItems[item].length,
         });
+        this.totalPrice += this.cartItems[item][0].price;
+        console.log(this.totalPrice);
       }
       this.cartItems = tempArr;
     });
-    console.log(this.cartItems);
   }
 
   increaseItem(item: object) {
