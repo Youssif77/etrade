@@ -16,12 +16,19 @@ export class CartService {
     this.cartContainer.next(newCart);
   }
 
-  removeFromCart(id) {
+  removeOneFromCart(id) {
     const itemId = this.cartContainer
       .getValue()
       .findIndex((item) => item.id === id);
     const newCart = this.cartContainer.getValue().slice();
     newCart.splice(itemId, 1);
+    this.cartContainer.next(newCart);
+  }
+
+  removeFromCart(id) {
+    const newCart = this.cartContainer
+      .getValue()
+      .filter((item) => item.id !== id);
     this.cartContainer.next(newCart);
   }
 }

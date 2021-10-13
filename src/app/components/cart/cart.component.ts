@@ -27,8 +27,8 @@ export class CartComponent implements OnInit {
           quntity: this.cartItems[item].length,
         });
         this.totalPrice += this.cartItems[item][0].price;
-        console.log(this.totalPrice);
       }
+      this.totalPrice = Math.ceil(this.totalPrice);
       this.cartItems = tempArr;
     });
   }
@@ -38,6 +38,9 @@ export class CartComponent implements OnInit {
   }
 
   decreaseItem(itemId: number) {
+    this.cartService.removeOneFromCart(itemId);
+  }
+  RemoveItem(itemId: number) {
     this.cartService.removeFromCart(itemId);
   }
 }
