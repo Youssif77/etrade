@@ -1,27 +1,23 @@
 <div class="navbar-container">
   <span class="logo" routerLink="/">eTrade</span>
   <div class="navbar-left">
-    <div class="navbar-left__text">
-      <a routerLink="/cart"
-        >1
-        <mat-icon class="mat-icon notranslate material-icons mat-icon-no-color"
-          >shopping_cart</mat-icon
-        >
+    <div class="navbar-left__item">
+      <a routerLink="/cart">
+        <span class="navbar-left__text">0</span>
+        <mat-icon class="navbar-left__icon">shopping_cart</mat-icon>
       </a>
     </div>
-    <div class="navbar-left__text">
-      <a routerLink="/register"
-        ><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color"
-          >person_add</mat-icon
-        >Register</a
-      >
+    <div class="navbar-left__item">
+      <a routerLink="/register">
+        <mat-icon class="navbar-left__icon">person_add</mat-icon>
+        <span class="navbar-left__text">Register</span>
+      </a>
     </div>
-    <div class="navbar-left__text">
-      <a routerLink="/login"
-        ><mat-icon class="mat-icon notranslate material-icons mat-icon-no-color"
-          >account_circle</mat-icon
-        >Login</a
-      >
+    <div class="navbar-left__item">
+      <a routerLink="/login">
+        <mat-icon class="navbar-left__icon">account_circle</mat-icon>
+        <span class="navbar-left__text">Login</span>
+      </a>
     </div>
   </div>
 </div>
