@@ -1,14 +1,14 @@
 <div [ngClass]="'product-card'">
-  <a [routerLink]="['/product', productId]">
+  <a [routerLink]="['/product', product.id]">
     <figure class="product-card__image">
-      <img [src]="productImage" alt="Photo of a Shiba Inu" />
+      <img [src]="product.image" alt="Photo of a Shiba Inu" />
     </figure>
     <div class="product-card__description">
-      <span class="product-card__category">{{ productCategory }}</span>
-      <h4 class="product-card__title">{{ productTitle }}</h4>
+      <span class="product-card__category">{{ product.category }}</span>
+      <h4 class="product-card__title">{{ product.title }}</h4>
       <div class="product-card__cta">
-        <p class="product-card__price">{{ productPrice | currency }}</p>
-        <button mat-button>Add To Card</button>
+        <p class="product-card__price">{{ product.price | currency }}</p>
+        <button mat-button (click)="addToCard($event)">Add To Card</button>
       </div>
     </div>
   </a>

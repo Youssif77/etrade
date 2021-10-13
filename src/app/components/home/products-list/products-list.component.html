@@ -1,11 +1,5 @@
 <div [ngClass]="'products-wrapper'">
   <div *ngFor="let product of productsList">
-    <app-product-card
-      [productId]="product.id"
-      [productImage]="product.image"
-      [productTitle]="product.title"
-      [productCategory]="product.category"
-      [productPrice]="product.price"
-    ></app-product-card>
+    <app-product-card [product]="product"></app-product-card>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -6,12 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent implements OnInit {
-  @Input() productImage: string = '';
-  @Input() productTitle: string = '';
-  @Input() productCategory: string = '';
-  @Input() productPrice: number = 0;
-  @Input() productId: number = 0;
-  constructor() {}
+  @Input() product;
 
-  ngOnInit(): void {}
+  cartCount;
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartService.currentCartCount.subscribe(
+      (val) => (this.cartCount = val.length)
+    );
+  }
+
+  addToCard(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.cartService.addIntoCart(this.product);
+  }
 }
