@@ -1,14 +1,16 @@
 <div class="prodcut-details">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ currentProduct.title }}</mat-card-title>
-      <mat-card-subtitle>{{ currentProduct.category }}</mat-card-subtitle>
-    </mat-card-header>
-    <img matCardImage [src]="currentProduct.image" />
+  <mat-card class="prodcut-details__card">
+    <img
+      matCardImage
+      class="prodcut-details__image"
+      [src]="currentProduct.image"
+    />
+    <mat-card-title>{{ currentProduct.title }}</mat-card-title>
+    <mat-card-subtitle>{{ currentProduct.category }}</mat-card-subtitle>
     <mat-card-content> {{ currentProduct.description }} </mat-card-content>
     <mat-card-content> {{ currentProduct.price | currency }} </mat-card-content>
     <mat-card-actions align="start">
-      <button mat-button>Add to cart</button>
+      <button mat-button>Add To Cart</button>
     </mat-card-actions>
   </mat-card>
 </div>

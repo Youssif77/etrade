@@ -29,11 +29,11 @@ export class CartComponent implements OnInit {
     console.log(this.cartItems);
   }
 
-  increaseItem(item) {
+  increaseItem(item: object) {
     this.cartService.addIntoCart(item);
   }
 
-  decreaseItem(itemId) {
+  decreaseItem(itemId: number) {
     this.cartService.removeFromCart(itemId);
   }
 }

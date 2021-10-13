@@ -14,13 +14,14 @@ export class CartService {
   addIntoCart(newCartitem) {
     const newCart = [...this.cartContainer.getValue(), ...[newCartitem]];
     this.cartContainer.next(newCart);
-    console.log(this.cartContainer.getValue());
   }
 
   removeFromCart(id) {
-    const newCart = this.cartContainer
+    const itemId = this.cartContainer
       .getValue()
-      .filter((item) => item.id !== id);
+      .findIndex((item) => item.id === id);
+    const newCart = this.cartContainer.getValue().slice();
+    newCart.splice(itemId, 1);
     this.cartContainer.next(newCart);
   }
 }
