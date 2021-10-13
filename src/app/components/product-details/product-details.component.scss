@@ -14,4 +14,14 @@
     margin: 0px auto 60px !important;
     display: block;
   }
+
+  &__button {
+    color: #ef6c00;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #ef6c00;
+      color: #fff;
+    }
+  }
 }

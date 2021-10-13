@@ -10,7 +10,9 @@
     <mat-card-content> {{ currentProduct.description }} </mat-card-content>
     <mat-card-content> {{ currentProduct.price | currency }} </mat-card-content>
     <mat-card-actions align="start">
-      <button mat-button>Add To Cart</button>
+      <button mat-button class="prodcut-details__button" (click)="addToCard()">
+        Add To Cart
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
