@@ -7,12 +7,12 @@ import { CartService } from './../../shared/services/cart.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  cartCount;
+  cartCount: number = 0;
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService.currentCartCount.subscribe((items) => {
-      this.cartCount = items.reduce((sum, item) => (sum += item.quntity), 0);
+      this.cartCount = items.reduce((prev, item) => (prev += item.quntity), 0);
     });
   }
 }

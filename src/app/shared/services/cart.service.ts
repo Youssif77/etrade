@@ -11,12 +11,12 @@ export class CartService {
 
   constructor() {}
 
-  addIntoCart(newCartitem) {
+  addIntoCart(newCartitem: object): void {
     const newCart = aggregateItems(this.cartContainer.getValue(), newCartitem);
     this.cartContainer.next(newCart);
   }
 
-  removeOneFromCart(id) {
+  removeOneFromCart(id: number) {
     const itemId = this.cartContainer
       .getValue()
       .findIndex((item) => item.id === id);
@@ -26,7 +26,7 @@ export class CartService {
     this.cartContainer.next(newCart);
   }
 
-  removeFromCart(id) {
+  removeFromCart(id: number): void {
     const newCart = this.cartContainer
       .getValue()
       .filter((item) => item.id !== id);

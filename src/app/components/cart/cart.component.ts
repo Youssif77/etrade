@@ -8,7 +8,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cartItems;
+  cartItems: object[];
   displayedColumns = ['image', 'title', 'price', 'quntity'];
   totalPrice: number = 0;
 
@@ -17,6 +17,10 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.currentCartCount.subscribe((items) => {
       this.cartItems = items;
+      this.totalPrice = items.reduce(
+        (prev, item) => (prev += item.price * item.quntity),
+        0
+      );
     });
   }
 
