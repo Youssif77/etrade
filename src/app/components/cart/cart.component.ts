@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService.currentCartCount.subscribe((items) => {
       const aggregatedItems = [];
       const aggregatedItemsId = [];
-      // this.totalPrice = 0;
+      this.totalPrice = 0;
       items.forEach((item) => {
         if (aggregatedItemsId.includes(item.id)) {
           aggregatedItems[item.id - 1].quntity += 1;
@@ -46,10 +46,10 @@ export class CartComponent implements OnInit {
           aggregatedItemsId.push(item.id);
           aggregatedItems.push({ quntity: 1, ...item });
         }
-        // this.totalPrice += item.price;
+        this.totalPrice += item.price;
       });
       this.cartItems = aggregatedItems;
-      // this.totalPrice = Math.ceil(this.totalPrice);
+      this.totalPrice = Math.ceil(this.totalPrice);
     });
   }
 
