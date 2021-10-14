@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { aggregateItems } from 'src/app/helper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private cartContainer = new BehaviorSubject([]);
-  private list = [];
-
   currentCartCount = this.cartContainer.asObservable();
 
   constructor() {}
 
   addIntoCart(newCartitem) {
-    const newCart = [...this.cartContainer.getValue(), newCartitem];
+    const newCart = aggregateItems(this.cartContainer.getValue(), newCartitem);
     this.cartContainer.next(newCart);
   }
 
@@ -21,8 +20,9 @@ export class CartService {
     const itemId = this.cartContainer
       .getValue()
       .findIndex((item) => item.id === id);
-    const newCart = this.cartContainer.getValue().slice();
-    newCart.splice(itemId, 1);
+    const newCart = [...this.cartContainer.getValue()];
+    if (newCart[itemId].quntity > 1) newCart[itemId].quntity -= 1;
+    else return this.removeFromCart(id);
     this.cartContainer.next(newCart);
   }
 
