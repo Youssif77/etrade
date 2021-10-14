@@ -1,4 +1,9 @@
-<table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+<table
+  ngClass="table"
+  mat-table
+  [dataSource]="cartItems"
+  class="mat-elevation-z8"
+>
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
@@ -6,7 +11,7 @@
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef>Image</th>
     <td mat-cell *matCellDef="let element">
-      <img class="image" [src]="element.image" alt="product image" />
+      <img class="table__row-image" [src]="element.image" alt="product image" />
     </td>
   </ng-container>
 
@@ -26,15 +31,27 @@
   <ng-container matColumnDef="quntity">
     <th mat-header-cell *matHeaderCellDef>Quantity</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.quntity }}
-      <button mat-mini-fab (click)="increaseItem(element)">
+      <span class="table__row-quntity">{{ element.quntity }}</span>
+      <button
+        mat-mini-fab
+        class="table__row-btn"
+        (click)="increaseItem(element)"
+      >
         <mat-icon>add</mat-icon>
       </button>
-      <button mat-mini-fab (click)="decreaseItem(element.id)">
+      <button
+        mat-mini-fab
+        class="table__row-btn"
+        (click)="decreaseItem(element.id)"
+      >
         <mat-icon>remove</mat-icon>
       </button>
-      <button mat-mini-fab (click)="RemoveItem(element.id)">
-        <mat-icon>delete</mat-icon>
+      <button
+        mat-button
+        class="table__row-btn removebtn"
+        (click)="RemoveItem(element.id)"
+      >
+        Remove
       </button>
     </td>
   </ng-container>
@@ -47,4 +64,4 @@
   ></tr>
   <div>total</div>
 </table>
-<div>Total{{ totalPrice }}</div>
+<div class="total-wrapper">Total: {{ totalPrice | currency }}</div>
