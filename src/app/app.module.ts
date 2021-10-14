@@ -15,6 +15,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import { WishListComponent } from './components/home/wish-list/wish-list.component';
+import { WishItemComponent } from './components/home/wish-item/wish-item.component';
+import { StoreModule } from '@ngrx/store';
+import { WichesReducer } from './store/wishes/wiches.reducer';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { CartComponent } from './components/cart/cart.component';
     LoginComponent,
     RegisterComponent,
     CartComponent,
+    WishListComponent,
+    WishItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,7 @@ import { CartComponent } from './components/cart/cart.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ wiches: WichesReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

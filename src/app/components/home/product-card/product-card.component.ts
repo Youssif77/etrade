@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/shared/services/cart.service';
+import { ToggleWich } from 'src/app/store/wishes/wiches.action';
 
 @Component({
   selector: 'app-product-card',
@@ -8,19 +10,18 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product;
-
-  cartCount;
-  constructor(private cartService: CartService) {}
-
-  ngOnInit(): void {
-    this.cartService.currentCartCount.subscribe(
-      (val) => (this.cartCount = val.length)
-    );
-  }
+  constructor(private cartService: CartService, private store: Store<any>) {}
+  ngOnInit(): void {}
 
   addToCard(e) {
     e.preventDefault();
     e.stopPropagation();
     this.cartService.addIntoCart(this.product);
+  }
+
+  addToWishList(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    this.store.dispatch(new ToggleWich(this.product));
   }
 }

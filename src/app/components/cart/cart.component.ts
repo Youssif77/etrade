@@ -41,6 +41,8 @@ export class CartComponent implements OnInit {
       this.totalPrice = 0;
       items.forEach((item) => {
         if (aggregatedItemsId.includes(item.id)) {
+          console.log('ID', item.id);
+          console.log('aggregatedItems', aggregatedItems);
           aggregatedItems[item.id - 1].quntity += 1;
         } else {
           aggregatedItemsId.push(item.id);

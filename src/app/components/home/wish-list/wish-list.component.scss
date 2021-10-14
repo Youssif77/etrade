@@ -1,0 +1,13 @@
+.wiches-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  &__title {
+    font-size: 1.5rem;
+    color: #ef6c00;
+    span {
+      margin-left: 20px;
+    }
+  }
+}

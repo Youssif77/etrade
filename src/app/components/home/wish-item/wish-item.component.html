@@ -1,0 +1,12 @@
+<div [ngClass]="'wich-card'">
+  <img class="wich-card__image" [src]="wich.image" [alt]="wich.title" />
+  <h4 class="wich-card__title">{{ wich.title }}</h4>
+
+  <button
+    mat-icon-button
+    class="wich-card__btn"
+    (click)="removeFromWishList($event)"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

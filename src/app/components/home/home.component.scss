@@ -1,0 +1,11 @@
+.home__wrapper {
+  display: flex;
+
+  &-product-list {
+    width: 80%;
+  }
+
+  &-wish-list {
+    width: 20%;
+  }
+}

@@ -1,0 +1,24 @@
+.wich-card {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+
+  &__image {
+    width: 15%;
+    margin-right: 20px;
+  }
+
+  &__title {
+    width: 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 500;
+  }
+
+  &__btn {
+    // width: 25%;
+    color: #ff1100;
+  }
+}

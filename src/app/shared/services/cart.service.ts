@@ -6,13 +6,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   private cartContainer = new BehaviorSubject([]);
+  private list = [];
 
   currentCartCount = this.cartContainer.asObservable();
 
   constructor() {}
 
   addIntoCart(newCartitem) {
-    const newCart = [...this.cartContainer.getValue(), ...[newCartitem]];
+    const newCart = [...this.cartContainer.getValue(), newCartitem];
     this.cartContainer.next(newCart);
   }
 
