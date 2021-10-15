@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   myForm: FormGroup;
-  constructor(private route: Router) {}
+  constructor(private route: Router, private auth: AuthService) {}
 
   ngOnInit(): void {}
   onSubmit(form: NgForm) {
-    console.log(form);
+    this.auth.setloggingOut();
     this.route.navigate(['/']);
   }
 }
