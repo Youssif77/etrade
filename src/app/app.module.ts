@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,6 +19,7 @@ import { WishListComponent } from './components/home/wish-list/wish-list.compone
 import { WishItemComponent } from './components/home/wish-item/wish-item.component';
 import { StoreModule } from '@ngrx/store';
 import { WichesReducer } from './store/wishes/wiches.reducer';
+import { RequestInterceptor } from './shared/interceptor/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { WichesReducer } from './store/wishes/wiches.reducer';
     ReactiveFormsModule,
     StoreModule.forRoot({ wiches: WichesReducer }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
