@@ -5,13 +5,14 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartGuard } from './guards/cart.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'product/:id', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [CartGuard] },
 ];
 
 @NgModule({
