@@ -19,7 +19,7 @@ import { WishListComponent } from './components/home/wish-list/wish-list.compone
 import { WishItemComponent } from './components/home/wish-item/wish-item.component';
 import { StoreModule } from '@ngrx/store';
 import { WichesReducer } from './store/wishes/wiches.reducer';
-import { RequestInterceptor } from './shared/interceptor/request.interceptor';
+import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 
 @NgModule({
   declarations: [
