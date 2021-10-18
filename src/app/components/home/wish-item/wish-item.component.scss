@@ -1,16 +1,16 @@
 .wish-card {
-  width: 100%;
+  width: 250px;
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 10px;
+  margin: 10px 0;
 
   &__image {
-    width: 15%;
+    width: 50px;
     margin-right: 20px;
   }
 
   &__title {
-    width: 50%;
+    width: 150px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -18,7 +18,7 @@
   }
 
   &__btn {
-    // width: 25%;
+    width: 50px;
     color: #ff1100;
   }
 }
