@@ -8,14 +8,12 @@ import { RemoveWish } from 'src/app/store/wishes/wishes.action';
   styleUrls: ['./wish-item.component.scss'],
 })
 export class WishItemComponent implements OnInit {
-  @Input() wich;
+  @Input() wish;
   constructor(private store: Store<any>) {}
 
-  ngOnInit(): void {
-    console.log('FIRE FROM WICH ITEM', this.wich);
-  }
+  ngOnInit(): void {}
 
   removeFromWishList(e) {
-    this.store.dispatch(new RemoveWish(this.wich));
+    this.store.dispatch(new RemoveWish(this.wish));
   }
 }
