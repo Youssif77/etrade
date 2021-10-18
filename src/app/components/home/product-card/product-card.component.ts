@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/shared/services/cart.service';
-import { ToggleWich } from 'src/app/store/wishes/wiches.action';
+import { ToggleWish } from 'src/app/store/wishes/wishes.action';
 
 @Component({
   selector: 'app-product-card',
@@ -22,6 +22,6 @@ export class ProductCardComponent implements OnInit {
   addToWishList(e) {
     e.preventDefault();
     e.stopPropagation();
-    this.store.dispatch(new ToggleWich(this.product));
+    this.store.dispatch(new ToggleWish(this.product));
   }
 }

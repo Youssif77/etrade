@@ -1,9 +1,9 @@
 <div [ngClass]="'wiches-wrapper'">
   <div class="wiches-wrapper__title">
-    Wich List <span>{{ wichesList.length }} products</span>
+    Wish List <span>{{ wishesList.length }} products</span>
   </div>
   <hr />
-  <div *ngFor="let wich of wichesList">
+  <div *ngFor="let wich of wishesList">
     <app-wish-item [wich]="wich"></app-wish-item>
   </div>
 </div>

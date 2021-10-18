@@ -18,7 +18,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { WishListComponent } from './components/home/wish-list/wish-list.component';
 import { WishItemComponent } from './components/home/wish-item/wish-item.component';
 import { StoreModule } from '@ngrx/store';
-import { WichesReducer } from './store/wishes/wiches.reducer';
+import { WishesReducer } from './store/wishes/wishes.reducer';
 import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
@@ -45,7 +45,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ wiches: WichesReducer }),
+    StoreModule.forRoot({ wishes: WishesReducer }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },

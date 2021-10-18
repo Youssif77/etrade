@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { RemoveWich } from 'src/app/store/wishes/wiches.action';
+import { RemoveWish } from 'src/app/store/wishes/wishes.action';
 
 @Component({
   selector: 'app-wish-item',
@@ -16,6 +16,6 @@ export class WishItemComponent implements OnInit {
   }
 
   removeFromWishList(e) {
-    this.store.dispatch(new RemoveWich(this.wich));
+    this.store.dispatch(new RemoveWish(this.wich));
   }
 }

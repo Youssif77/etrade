@@ -7,12 +7,12 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./wish-list.component.scss'],
 })
 export class WishListComponent implements OnInit {
-  wichesList;
+  wishesList;
   constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
-    this.store.select('wiches').subscribe((data) => {
-      this.wichesList = data;
+    this.store.select('wishes').subscribe((data) => {
+      this.wishesList = data;
     });
   }
 }
