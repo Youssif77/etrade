@@ -26,7 +26,7 @@ export class CartGuard implements CanActivate {
     this.isLoggedIn = this.auth.getIsLogging();
     if (this.isLoggedIn) return true;
     else {
-      window.alert('You dont have permission to view this page');
+      window.alert('You must register to show your cart');
       return false;
     }
   }

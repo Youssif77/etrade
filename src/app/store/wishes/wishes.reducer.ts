@@ -11,7 +11,6 @@ export function WishesReducer(state = [], action: WishActions) {
       if (wishedItem) {
         return state.filter((item) => item.id !== action.payload.id);
       } else {
-        console.log();
         return [...state, ...[action.payload]];
       }
 

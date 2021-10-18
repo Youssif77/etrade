@@ -9,7 +9,9 @@
     <mat-card-title>{{ currentProduct.title }}</mat-card-title>
     <mat-card-subtitle>{{ currentProduct.category }}</mat-card-subtitle>
     <mat-card-content> {{ currentProduct.description }} </mat-card-content>
-    <mat-card-content> {{ currentProduct.price | currency }} </mat-card-content>
+    <mat-card-content>
+      {{ currentProduct.price | customCurrency }}
+    </mat-card-content>
     <mat-card-actions align="start">
       <button mat-button class="prodcut-details__button" (click)="addToCard()">
         Add To Cart

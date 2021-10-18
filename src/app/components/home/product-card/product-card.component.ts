@@ -10,6 +10,7 @@ import { ToggleWish } from 'src/app/store/wishes/wishes.action';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product;
+  isSelectedFav: boolean = false;
   constructor(private cartService: CartService, private store: Store<any>) {}
   ngOnInit(): void {}
 
@@ -19,9 +20,10 @@ export class ProductCardComponent implements OnInit {
     this.cartService.addIntoCart(this.product);
   }
 
-  addToWishList(e) {
+  toggleWish(e) {
     e.preventDefault();
     e.stopPropagation();
+    this.isSelectedFav = !this.isSelectedFav;
     this.store.dispatch(new ToggleWish(this.product));
   }
 }

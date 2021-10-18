@@ -22,12 +22,22 @@ export class RegisterComponent implements OnInit {
     this.loginForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      userName: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      userName: [
+        null,
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9.-_$@*!]{3,30}$')],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(8),
+          Validators.pattern('(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{1,8}'),
+        ],
+      ],
       confirmPassword: ['', [Validators.required]],
       addresses: this.fb.array([]),
     });
-    this.loginForm.valueChanges.subscribe((_) => console.log(this.loginForm));
+    // this.loginForm.valueChanges.subscribe((_) => console.log(this.loginForm));
   }
 
   get loginFormControls() {
@@ -47,10 +57,19 @@ export class RegisterComponent implements OnInit {
 
   addAddresses() {
     const address = this.fb.group({
-      address: [],
-      street: [],
-      country: [],
-      city: [],
+      address: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9_ .-]*$')],
+      ],
+      street: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9_ .-]*$')],
+      ],
+      country: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z_ .-]*$')],
+      ],
+      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z_ .-]*$')]],
     });
     this.addressesForm.push(address);
   }
@@ -62,9 +81,9 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.confirmPasswordState) {
       console.log(this.confirmPasswordState);
-      // this.route.navigate(['/']);
+      this.route.navigate(['/']);
     } else {
-      console.log(this.loginForm);
+      console.log(this.confirmPasswordState);
       console.log('INCORRECT PASSWORD');
     }
   }

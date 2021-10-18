@@ -50,14 +50,19 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Password</mat-label>
+          <mat-label>Enter your password</mat-label>
           <input
             name="password"
             type="password"
             formControlName="password"
             matInput
           />
-          <mat-error *ngIf="loginFormControls.password.hasError('minlength')">
+          <mat-error
+            *ngIf="
+              loginFormControls.password.hasError('minlength') ||
+              loginFormControls.password.hasError('pattern')
+            "
+          >
             Please enter a valid password
           </mat-error>
           <mat-error *ngIf="loginFormControls.password.hasError('required')">

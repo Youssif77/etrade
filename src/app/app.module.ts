@@ -21,6 +21,8 @@ import { StoreModule } from '@ngrx/store';
 import { WishesReducer } from './store/wishes/wishes.reducer';
 import { RequestInterceptor } from './shared/interceptors/request.interceptor';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { CustomCurrencyPipe } from './shared/pipes/custom-currency.pipe';
+import { FixedPricePipe } from './shared/pipes/fixed-price.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     WishListComponent,
     WishItemComponent,
     LoaderComponent,
+    CustomCurrencyPipe,
+    FixedPricePipe,
   ],
   imports: [
     BrowserModule,

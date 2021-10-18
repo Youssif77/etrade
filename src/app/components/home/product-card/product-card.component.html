@@ -7,10 +7,13 @@
       <span class="product-card__category">{{ product.category }}</span>
       <h4 class="product-card__title">{{ product.title }}</h4>
       <div class="product-card__cta">
-        <p class="product-card__price">{{ product.price | currency }}</p>
+        <p class="product-card__price">{{ product.price | customCurrency }}</p>
         <div class="product-btn">
-          <button mat-icon-button (click)="addToWishList($event)">
-            <mat-icon>favorite</mat-icon>
+          <button mat-icon-button (click)="toggleWish($event)">
+            <mat-icon *ngIf="isSelectedFav; else elseBlock">favorite</mat-icon>
+            <ng-template #elseBlock>
+              <mat-icon>favorite_border</mat-icon>
+            </ng-template>
           </button>
           <button mat-button (click)="addToCard($event)">Add To Card</button>
         </div>
