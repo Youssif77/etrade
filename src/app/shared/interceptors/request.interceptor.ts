@@ -19,14 +19,10 @@ export class RequestInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.loaderService.setLoading();
-    console.log('BEFORE HOLA INTERCEPTION', this.loaderService.getIsLoading());
-    return next.handle(request).pipe(
+    return next.handle(request)
+    .pipe(
       finalize(() => {
         this.loaderService.removeLoading();
-        console.log(
-          'AFTER HOLA INTERCEPTION',
-          this.loaderService.getIsLoading()
-        );
       })
     );
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderService } from 'src/app/shared/services/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +6,7 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  isLoaded: boolean;
-  constructor(private loaderService: LoaderService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.isLoaded = this.loaderService.getIsLoading();
-    console.log('HOLA HOME', this.isLoaded);
-  }
+  ngOnInit(): void {}
 }

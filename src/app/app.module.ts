@@ -20,6 +20,7 @@ import { WishItemComponent } from './components/home/wish-item/wish-item.compone
 import { StoreModule } from '@ngrx/store';
 import { WichesReducer } from './store/wishes/wiches.reducer';
 import { RequestInterceptor } from './shared/interceptors/request.interceptor';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RequestInterceptor } from './shared/interceptors/request.interceptor';
     CartComponent,
     WishListComponent,
     WishItemComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

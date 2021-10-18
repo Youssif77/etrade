@@ -9,15 +9,12 @@ export class LoaderService {
   constructor() {}
 
   getIsLoading() {
-    console.log('FIRED IN GET SERVICSES');
-    return this.isLoading.getValue();
+    return this.isLoading;
   }
   setLoading() {
-    console.log('FIRED IN SET SERVICSES');
     this.isLoading.next(true);
   }
   removeLoading() {
-    console.log('FIRED IN REMOVE SERVICSES');
     this.isLoading.next(false);
   }
 }

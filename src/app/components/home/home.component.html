@@ -1,7 +1,5 @@
 <div class="home__wrapper">
-  <div *ngIf="isLoaded">
-    <mat-spinner></mat-spinner>
-  </div>
+  <app-loader></app-loader>
   <app-products-list class="home__wrapper-product-list"></app-products-list>
   <app-wish-list class="home__wrapper-wish-list"></app-wish-list>
 </div>
